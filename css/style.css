@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* BACKGROUNDSTYLE */
 .top-background{
     height: 150px;
     background-color: #009688;
@@ -12,4 +13,62 @@
 
 .main-background{
     background-color: #d9dbd5;
+    height: 100vh;
 }
+
+/* MAIN STYLE */
+
+.main-container{
+    margin-top: -80px;
+    height: 700px;
+}
+
+/* LEFT-CONTAINER */
+.left-container{
+    width: 500px;
+    background-color: #ededed;
+}
+
+.icon-notifications{
+    background-color: white;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.notifications-container{
+    background-color: #9de1fe;
+}
+
+.fas {
+    color: gray;
+}
+
+.fa-bell-slash{
+   color: #9de1fe;
+}
+
+
+/* RIGHT-CONTAINER */
+.right-container{
+    width: 650px;
+}
+
+.header-right{
+    background-color: #ededed;
+}
+
+.chat-container{
+    height: 600px;
+    background-image: url("../img/mine.jpg");
+}
+
+.footer-chat-container{
+    background-color: #ededed;
+}
+
+/* IMG E AVATARS */
+.avatars-img{
+    width: 60px;
+    border-radius: 50px;
+}
+
