@@ -21,15 +21,50 @@
     <!-- js #app -->
     <div id="app">
 
-        <!-- contacts container -->
-        <div class="contacts-container">
-            <ul class="contacts">
-                <li v-for="contact in contacts">
-                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact-avatar">
-                    {{ contact.name }}
-                </li>
-            </ul>
+        <!-- GENERAL CONTAINER -->
+        <div class="container-fluid">
+            
+            
+            <div class="row top-background"></div>
+            <div class=" row main-background">
+
+                <!-- CENTRAL CONTAINER -->
+                <div class="container-fluid main-container">
+
+                    <div class="container d-flex">
+                        <div class="row">
+
+                            <!-- CENTRAL CONTAINER-LEFT / SIDEBAR -->
+                            <!-- CONTACTS CONTAINER -->
+                            <div class="contacts-container">
+                                <ul class="contacts">
+                                    <li v-for="contact in contacts">
+                                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact-avatar">
+                                        {{ contact.name }}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- CENTRAL CONTAINER-RIGHT -->
+                            <!-- CHAT CONTAINER -->
+                        </div>
+                    </div>
+
+                   
+
+
+                </div>
+                
+            </div> 
+                
+                
+            
+                
+            
+
         </div>
+
+        
     
             
     </div>

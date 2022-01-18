@@ -4,3 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.top-background{
+    height: 150px;
+    background-color: #009688;
+}
+
+.main-background{
+    background-color: #d9dbd5;
+}
