@@ -31,15 +31,15 @@
       <!-- GENERAL CONTAINER -->
       <div class="container-fluid">
         <!-- BACKGROUND TOP/MAIN -->
-        <div class="row top-background"></div>
-        <div class="row main-background">
+        <div class="top-background"></div>
+        <div class="main-background">
           <!-- / BACKGROUND TOP/MAIN -->
 
           <!-- MAIN CONTAINER -->
           
-            <div class="row main-container">
-              
-                <div class="col-4">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-4 left-container">
                 
                 <!-- LEFT CONTAINER / SIDEBAR -->
 
@@ -95,15 +95,15 @@
                 <!-- CONTACTS-CONTAINER -->
                 <div class="contacts-container">
                   <ul class="contatcs list-group">
-                    <li class="list-group-item" v-for="contact in contacts">
-                      <img
-                        class="avatars-img"
-                        :src="`img/avatar${contact.avatar}.jpg`"
-                        alt="contact-avatar"
-                      />
-                      {{ contact.name }}
-                    </li>
-                  </ul>
+                        <li class="list-group-item" v-for="contact in contacts">
+                        <img
+                            class="avatars-img"
+                            :src="`img/avatar${contact.avatar}.jpg`"
+                            alt="contact-avatar"
+                        />
+                        {{ contact.name }}
+                        </li>
+                    </ul>
                 </div>
                 <!-- / CONTACTS-CONTAINER -->
               </div>
@@ -153,6 +153,9 @@
                 <!-- / FOOTER-CHAT-CONTAINER -->
 
                 <!-- / RIGHT-CONTAINER  -->
+                </div>
+              
+                
               </div>
             </div>
           </div>
