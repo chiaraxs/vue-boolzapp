@@ -29,7 +29,7 @@
     <!-- js #app -->
     <div id="app">
       <!-- GENERAL CONTAINER -->
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <!-- BACKGROUND TOP/MAIN -->
         <div class="top-background"></div>
         <div class="main-background">
@@ -37,92 +37,91 @@
 
           <!-- MAIN CONTAINER -->
           
-            <div class="container">
+            <div class="container ">
                 <div class="row g-0">
                     <div class="col-4 left-container">
                 
-                <!-- LEFT CONTAINER / SIDEBAR -->
+                        <!-- LEFT CONTAINER / SIDEBAR -->
+                        <!-- HEADER-LEFT -->
+                        <div class="header-left d-flex">
+                            <div class="user-img flex-grow-1">
+                                <img
+                                class="avatars-img my-2 mx-2"
+                                src="./img/avatar_io.jpg"
+                                alt=""
+                                />
+                                <span class="fw-bold">Nome Utente</span>
+                            </div>
 
-                <!-- HEADER-LEFT -->
-                <div class="header-left d-flex">
-                  <div class="user-img flex-grow-1">
-                    <img
-                      class="avatars-img my-2 mx-2"
-                      src="./img/avatar_io.jpg"
-                      alt=""
-                    />
-                    <span class="fw-bold">Nome Utente</span>
-                  </div>
+                            <div class="profile-tools">
+                                <i class="fas fa-circle-notch my-3 mx-2 py-3 px-2"></i>
+                                <i class="fas fa-comment-alt my-3 mx-2 py-3 px-2"></i>
+                                <i class="fas fa-ellipsis-v my-3 mx-2 py-3 px-2"></i>
+                            </div>
+                        </div>
+                        <!-- / HEADER-LEFT -->
 
-                  <div class="profile-tools">
-                    <i class="fas fa-circle-notch my-3 mx-2 py-3 px-2"></i>
-                    <i class="fas fa-comment-alt my-3 mx-2 py-3 px-2"></i>
-                    <i class="fas fa-ellipsis-v my-3 mx-2 py-3 px-2"></i>
-                  </div>
-                </div>
-                <!-- / HEADER-LEFT -->
+                        <!-- NOTIFICATIONS-CONTAINER -->
+                        <div class="notifications-container d-flex">
+                            <div class="icon-notifications text-center py-3 mx-2 my-2">
+                                <i class="fas fa-bell-slash"></i>
+                            </div>
 
-                <!-- NOTIFICATIONS-CONTAINER -->
-                <div class="notifications-container d-flex">
-                  <div class="icon-notifications text-center py-3 mx-2 my-2">
-                    <i class="fas fa-bell-slash"></i>
-                  </div>
+                            <div class="notifications my-2">
+                                <div class="receive-notification fw-bold">
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+                                <div class="active-notification text-decoration-underline mb-1">
+                                    Attiva notifiche desktop
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / NOTIFICATIONS-CONTAINER -->
 
-                  <div class="notifications my-2">
-                    <div class="receive-notification fw-bold">
-                      Ricevi notifiche di nuovi messaggi
+                        <!-- SEARCH-CONTAINER -->
+                        <div class="search-container d-flex bg-light">
+                            <i class="fas fa-search mx-3 my-2"></i>
+                            <input
+                                type="text"
+                                class="input-group border-0"
+                                placeholder="Cerca o inizia una nuova chat"
+                            />
+                        </div>
+                        <!-- / SEARCH-CONTAINER -->
+
+                        <!-- CONTACTS-CONTAINER -->
+                        <div class="contacts-container">
+                            <ul class="contatcs list-group">
+                                <li class="list-group-item" v-for="contact in contacts">
+                                    <img
+                                        class="avatars-img"
+                                        :src="`img/avatar${contact.avatar}.jpg`"
+                                        alt="contact-avatar"
+                                        />
+                                        {{ contact.name }}
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- / CONTACTS-CONTAINER -->
                     </div>
-                    <div
-                      class="active-notification text-decoration-underline mb-1"
-                    >
-                      Attiva notifiche desktop
-                    </div>
-                  </div>
-                </div>
-                <!-- / NOTIFICATIONS-CONTAINER -->
+                    
+                    <div class="col-8">
+                    <!-- RIGHT-CONTAINER -->
 
-                <!-- SEARCH-CONTAINER -->
-                <div class="search-container d-flex bg-light">
-                  <i class="fas fa-search mx-3 my-2"></i>
-                  <input
-                    type="text"
-                    class="input-group border-0"
-                    placeholder="Cerca o inizia una nuova chat"
-                  />
-                </div>
-                <!-- / SEARCH-CONTAINER -->
-
-                <!-- CONTACTS-CONTAINER -->
-                <div class="contacts-container">
-                  <ul class="contatcs list-group">
-                        <li class="list-group-item" v-for="contact in contacts">
-                        <img
-                            class="avatars-img"
-                            :src="`img/avatar${contact.avatar}.jpg`"
-                            alt="contact-avatar"
-                        />
-                        {{ contact.name }}
-                        </li>
-                    </ul>
-                </div>
-                <!-- / CONTACTS-CONTAINER -->
-              </div>
-              <div class="col-8">
-                <!-- RIGHT-CONTAINER -->
-
-                <!-- HEADER-RIGHT  -->
-                <div class="header-right">
-                  <div class="header-left d-flex">
-                    <div class="user-img flex-grow-1">
-                      <img
-                        class="avatars-img my-2 mx-2"
-                        src="./img/avatar_1.jpg"
-                        alt=""
-                      />
-                      <span class="fw-bold">Michele</span>
-                      <p class="text-secondary mx-5">
-                        Ultimo accesso oggi alle
-                      </p>
+                    <!-- HEADER-RIGHT  -->
+                    <div class="header-right">
+                        <div class="header-left d-flex">
+                            <div class="user-img flex-grow-1">
+                                <img
+                                    class="avatars-img my-2 mx-2"
+                                    src="./img/avatar_1.jpg"
+                                    alt=""
+                                />
+                            <span class="fw-bold">Michele</span>
+                            <p class="text-secondary mx-5">
+                                Ultimo accesso oggi alle
+                            </p>
+                        </div>
                     </div>
 
                     <div class="profile-setting">
@@ -130,38 +129,36 @@
                       <i class="fas fa-paperclip my-3 mx-2 py-3 px-2"></i>
                       <i class="fas fa-ellipsis-v my-3 mx-2 py-3 px-2"></i>
                     </div>
-                  </div>
-                </div>
-                <!-- /HEADER-RIGHT  -->
 
-                <!-- CHAT-CONTAINER -->
-                <div class="chat-container"></div>
-                <!-- / CHAT-CONTAINER -->
+                    <!-- /HEADER-RIGHT  -->
 
-                <!-- FOOTER-CHAT-CONTAINER -->
-                <div class="footer-chat-container d-flex flex-row">
-                  <i class="far fa-smile mx-4 py-3"></i>
-                  <div class="input-message flex-fill py-3">
-                    <input
-                      type="text"
-                      placeholder="Scrivi un messaggio"
-                      class="border-0 w-75"
-                    />
-                  </div>
-                  <i class="fas fa-microphone mx-4 py-3"></i>
-                </div>
-                <!-- / FOOTER-CHAT-CONTAINER -->
+                    <!-- CHAT-CONTAINER -->
+                    <div class="chat-container"></div>
+                    <!-- / CHAT-CONTAINER -->
 
-                <!-- / RIGHT-CONTAINER  -->
+                    <!-- FOOTER-CHAT-CONTAINER -->
+                    <div class="footer-chat-container d-flex flex-row">
+                        <i class="far fa-smile mx-4 py-3"></i>
+                        <div class="input-message flex-fill py-3">
+                            <input
+                            type="text"
+                            placeholder="Scrivi un messaggio"
+                            class="border-0 w-75"
+                            />
+                        </div>
+                        <i class="fas fa-microphone mx-4 py-3"></i>
+                    </div>
+                    <!-- / FOOTER-CHAT-CONTAINER -->
+
+                    <!-- / RIGHT-CONTAINER  -->
                 </div>
               
-                
-              </div>
             </div>
-          </div>
+        </div>
+        </div>
         </div>
         <!-- / MAIN CONTAINER -->
-      </div>
+    </div>
       <!-- / GENERAL CONTAINER -->
     </div>
     <!-- / js #app -->
