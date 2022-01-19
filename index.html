@@ -106,10 +106,13 @@
                             </div>
                             <!-- / SEARCH-CONTAINER -->
 
-                            <!-- CONTACTS-CONTAINER -->
+                            <!-- CONTACTS-CONTAINER --> 
+                                <!-- con v-for stampa per ogni contatto i relativi nomi & img in una lista 
+                                poi al @click porta il currentIndex all'index corrente replicato con il v-for 
+                                in modo che al click sul contatto rimandi alla chat specifica -->
                             <div class="contacts-container">
                                 <ul class="contatcs list-group">
-                                    <li class="list-group-item" v-for="contact in contacts">
+                                    <li class="list-group-item" v-for="(contact, index) in contacts" @click="currentIndex = index">
                                         <img
                                             class="avatars-img"
                                             :src="`img/avatar${contact.avatar}.jpg`"
@@ -162,8 +165,10 @@
 
 
                             <!-- CHAT-CONTAINER -->
+                                <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
+                                ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
                             <div class="chat-container">
-                                <div class="message-zone d-flex flex-column" v-for="(messagge, index) in contacts[currentIndex].messages">
+                                <div class="message-zone d-flex flex-column" v-for="(message, index) in contacts[currentIndex].messages">
                                     <div class="sent-message text-center">
                                         {{contacts[currentIndex].messages[index].text}}
                                     </div>

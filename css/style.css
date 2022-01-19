@@ -24,6 +24,7 @@
 /* LEFT-CONTAINER */
 .left-container{
     background-color: #ededed;
+    border-right: 1px solid lightgray;
 }
 
 .icon-notifications{
@@ -56,6 +57,7 @@
 .chat-container{
     height: 500px;
     background-image: url("../img/mine.jpg");
+    border: 1px solid lightgray;
 }
 
 .footer-chat-container{
