@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* BACKGROUNDSTYLE */
+/* BACKGROUND STYLE */
 .top-background{
     height: 150px;
     background-color: #009688;
@@ -13,6 +13,7 @@
 
 .main-background{
     background-color: #d9dbd5;
+    height: 800px;
 }
 
 /* MAIN STYLE */
@@ -28,6 +29,7 @@
 .icon-notifications{
     background-color: white;
     width: 50px;
+    height: 50px;
     border-radius: 50px;
 }
 
@@ -35,8 +37,9 @@
     background-color: #9de1fe;
 }
 
-.fas {
+.fas, .far {
     color: gray;
+    cursor: pointer;
 }
 
 .fa-bell-slash{
@@ -51,7 +54,7 @@
 }
 
 .chat-container{
-    height: 600px;
+    height: 500px;
     background-image: url("../img/mine.jpg");
 }
 

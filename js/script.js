@@ -69,8 +69,8 @@ new Vue({
                 ],
             },
             {
-                name: 'Marco',
-                avatar: '_4',
+                name: 'Luisa',
+                avatar: '_6',
                 visible: true,
                 messages: [
                     {
