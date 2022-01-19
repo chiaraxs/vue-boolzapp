@@ -168,13 +168,13 @@
                                 <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
                                 ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
                             <div class="chat-container">
-                                <div class="message-zone d-flex flex-column" v-for="(message, index) in contacts[currentIndex].messages">
-                                    <div class="sent-message text-center">
-                                        {{contacts[currentIndex].messages[index].text}}
-                                    </div>
-                                    <div class="receveid-message text-center">
-                                        messaggio ricevuto
-                                    </div>
+                                <div class="box-message d-flex" v-for="(message, index) in contacts[currentIndex].messages" :class="currentIndex === index [contacts.messages.status] ? 'sent-message' : 'receveid-message' ">
+                                    
+                                    {{contacts[currentIndex].messages[index].text}}
+                                    {{contacts[currentIndex].messages[index].date}}
+                                    
+                                    
+                                    
                                 </div>
                                 
                             </div>

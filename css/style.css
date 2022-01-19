@@ -65,18 +65,19 @@
 }
 
 /* MESSAGE ZONE*/
-.sent-message{
+
+.box-message{
     width: 200px;
     height: 50px;
-    background-color: #dcf8c6;
     border-radius: 10px;
 }
 
+.sent-message{
+    background-color: #dcf8c6;
+}
+
 .receveid-message{
-    width: 200px;
-    height: 50px;
     background-color: white;
-    border-radius: 10px;
 }
 
 /* IMG E AVATARS */
