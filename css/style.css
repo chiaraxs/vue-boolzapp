@@ -66,19 +66,12 @@
 
 /* MESSAGE ZONE*/
 
-.box-message{
+.box-message {
     width: 200px;
-    height: 50px;
     border-radius: 10px;
+    border-radius: 15px;
 }
 
-.sent-message{
-    background-color: #dcf8c6;
-}
-
-.receveid-message{
-    background-color: white;
-}
 
 /* IMG E AVATARS */
 .avatars-img{
@@ -86,3 +79,11 @@
     border-radius: 50px;
 }
 
+/* JS DYNAMIC CLASS MESSAGES */
+.sent-message{
+    background-color: #dcf8c6;
+}
+
+.receveid-message {
+    background-color: white;
+}

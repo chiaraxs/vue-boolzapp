@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data: {
         currentIndex: 0,
+        inputMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -88,5 +89,11 @@ new Vue({
             },
         ]
     },
-    methods: {}
+    methods: {
+        sendMessage: function () {
+            this.contacts[this.currentIndex].messages.push({
+                text: this.inputMessage
+            })
+        },
+    }
 });

@@ -168,12 +168,17 @@
                                 <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
                                 ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
                             <div class="chat-container">
-                                <div class="box-message d-flex" v-for="(message, index) in contacts[currentIndex].messages" :class="currentIndex === index [contacts.messages.status] ? 'sent-message' : 'receveid-message' ">
-                                    
-                                    {{contacts[currentIndex].messages[index].text}}
-                                    {{contacts[currentIndex].messages[index].date}}
+                                <div class="box-message" v-for="(message, index) in contacts[currentIndex].messages">
                                     
                                     
+                                    <div class="text-message" :class="message.status === 'sent-message' ? 'sent-message' : 'received-message' ">
+                                        {{message.text}}
+                                    </div>
+                                    
+                                    <div class="date-message">
+                                        {{message.date}}
+                                    </div>
+                                   
                                     
                                 </div>
                                 
@@ -188,6 +193,8 @@
                                     type="text"
                                     placeholder="Scrivi un messaggio"
                                     class="border-0" style="width:700px"
+                                    v-model="inputMessage"
+                                    @keyup.enter="sendMessage"
                                     />
                                 </div>
                                 <a href="#"><i class="fas fa-microphone me-4 py-3"></i></a>
