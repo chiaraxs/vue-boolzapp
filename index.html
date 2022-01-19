@@ -137,10 +137,10 @@
                                     <div class="user-img flex-grow-1 py-2 mx-2">
                                         <img
                                             class="avatars-img"
-                                            :src="`img/avatar${contacts[0].avatar}.jpg`"
+                                            :src="`img/avatar${contacts[currentIndex].avatar}.jpg`"
                                             alt=""
                                         />
-                                        <span class="fw-bold">{{contacts[0].name}}</span>
+                                        <span class="fw-bold">{{contacts[currentIndex].name}}</span>
                                         <p class="text-secondary">
                                             <!-- Ultimo accesso oggi alle -->
                                         </p>
@@ -162,7 +162,17 @@
 
 
                             <!-- CHAT-CONTAINER -->
-                            <div class="chat-container"></div>
+                            <div class="chat-container">
+                                <div class="message-zone d-flex flex-column" v-for="(messagge, index) in contacts[currentIndex].messages">
+                                    <div class="sent-message text-center">
+                                        {{contacts[currentIndex].messages[index].text}}
+                                    </div>
+                                    <div class="receveid-message text-center">
+                                        messaggio ricevuto
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <!-- / CHAT-CONTAINER -->
 
                             <!-- FOOTER-CHAT-CONTAINER -->
