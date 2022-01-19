@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data: {
         currentIndex: 0,
-        inputMessage: '',
+        inputMessage: '',    // messaggio da popolare tramite input
         contacts: [
             {
                 name: 'Michele',
@@ -91,9 +91,14 @@ new Vue({
     },
     methods: {
         sendMessage: function () {
-            this.contacts[this.currentIndex].messages.push({
-                text: this.inputMessage
-            })
+            if (this.inputMessage.text != '') {        // pusha solo se il text in input è diverso da '' -> ossia non sia vuoto
+                this.contacts[this.currentIndex].messages.push({    // al currentIndx dei messaggi nei contatti -> pusha il messaggio inserito tramite input (inputMessage)
+                    date: '',
+                    text: (this.inputMessage),
+                    status: 'sent',                   // imposto lo status a 'sent' in modo da riprendere la class css 'sent'
+                })
+                this.inputMessage = ''    // resetto stringa input ad ogni push -> ossia ad ogni invio messaggio
+            }
         },
     }
 });

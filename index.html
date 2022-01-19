@@ -167,17 +167,19 @@
                             <!-- CHAT-CONTAINER -->
                                 <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
                                 ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
+                                <!-- :class -> lo stato del messaggio è uguale a 'sent' ? se sì, colora di verde | altrimenti colora di bianco (received) -->
                             <div class="chat-container">
-                                <div class="box-message" v-for="(message, index) in contacts[currentIndex].messages">
+                                <div class="box-message d-flex" v-for="(message, index) in contacts[currentIndex].messages">
                                     
                                     
-                                    <div class="text-message" :class="message.status === 'sent-message' ? 'sent-message' : 'received-message' ">
+                                    <div class="text-message" :class="message.status === 'sent' ? 'sent' : 'received' ">
                                         {{message.text}}
+                                            <div class="date-message">
+                                                {{message.date}}
+                                            </div>
                                     </div>
                                     
-                                    <div class="date-message">
-                                        {{message.date}}
-                                    </div>
+                                   
                                    
                                     
                                 </div>

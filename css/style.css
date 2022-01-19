@@ -64,15 +64,6 @@
     background-color: #ededed;
 }
 
-/* MESSAGE ZONE*/
-
-.box-message {
-    width: 200px;
-    border-radius: 10px;
-    border-radius: 15px;
-}
-
-
 /* IMG E AVATARS */
 .avatars-img{
     width: 60px;
@@ -80,10 +71,14 @@
 }
 
 /* JS DYNAMIC CLASS MESSAGES */
-.sent-message{
+.sent{
+    width: 200px;
     background-color: #dcf8c6;
+    border-radius: 15px;
 }
 
-.receveid-message {
+.received{
+    width: 200px;
     background-color: white;
+    border-radius: 15px;
 }
