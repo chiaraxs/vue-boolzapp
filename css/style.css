@@ -60,9 +60,13 @@
 }
 
 .chat-container{
-    height: 500px;
+    height: 700px;
     background-image: url("../img/mine.jpg");
     border: 1px solid lightgray;
+}
+
+.date-message{
+    font-size: 12px;
 }
 
 .footer-chat-container{
@@ -73,10 +77,6 @@
     color: #ff3b30;
 }
 
-/* FONT STYLE */
-.date-message{
-    font-size: 12px;
-}
 
 /* IMG E AVATARS */
 .avatars-img{
@@ -84,15 +84,23 @@
     border-radius: 50px;
 }
 
-/* JS DYNAMIC CLASS MESSAGES */
-.sent{
-    width: 200px;
+/* CHAT STYLE & JS DYNAMIC CLASS MESSAGES */
+.text-message{
+    width: 250px;
+    padding: 10px;
+    margin: 5px 10px;
+}
+
+.sent .text-message{
     background-color: #dcf8c6;
     border-radius: 15px;
 }
 
-.received{
-    width: 200px;
+.sent{
+    justify-content: flex-end;
+}
+
+.received .text-message{
     background-color: white;
     border-radius: 15px;
 }

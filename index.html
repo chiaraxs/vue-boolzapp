@@ -145,10 +145,13 @@
                                             :src="`img/avatar${contacts[currentIndex].avatar}.jpg`"
                                             alt=""
                                         />
+
                                         <span class="fw-bold">{{contacts[currentIndex].name}}</span>
                                         <p class="text-secondary">
-                                            <!-- Ultimo accesso oggi alle -->
+                                            <!-- Ultimo accesso oggi alle  -->
                                         </p>
+                                        
+
                                     </div>
                                     <!-- / CONTACT IMG/ DETAILS -->
 
@@ -169,21 +172,19 @@
                             <!-- CHAT-CONTAINER -->
                                 <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
                                 ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
-                                <!-- :class -> lo stato del messaggio è uguale a 'sent' ? se sì, colora di verde | altrimenti colora di bianco (received) -->
+                                <!-- :class -> corrente status del message -> se lo stato del messaggio è uguale a 'sent' colora di verde | altrimenti è 'received' e colora di bianco  -->
                             <div class="chat-container">
-                                <div class="box-message d-flex" v-for="message in contacts[currentIndex].messages">
+                                <div class="box-message d-flex mt-2" v-for="message in contacts[currentIndex].messages" :class="message.status">
                                     
                                     
-                                    <div class="text-message" :class="message.status === 'sent' ? 'sent' : 'received' ">
+                                    <div class="text-message">
                                         {{message.text}}
-                                            <div class="date-message text-secondary font-weight-light">
+                                            <div class="date-message text-secondary text-end font-weight-light">
                                                 {{message.date}}
                                             </div>
                                     </div>
                                     
-                                   
-                                   
-                                    
+                                
                                 </div>
                                 
                             </div>
