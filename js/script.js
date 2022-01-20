@@ -106,7 +106,7 @@ new Vue({
                     status: 'sent',                         // imposto lo status a 'sent' in modo da riprendere la class css 'sent'
                 })
                 this.inputMessage = '';                     // resetto stringa input ad ogni push -> ossia ad ogni invio messaggio
-            }   
+            }; 
             this.autoReply();                               // richiamo autoReply per ricevere risposta automatica 
         },
         autoReply: function () {
@@ -117,6 +117,9 @@ new Vue({
                     status: 'received',
                 })
             }, 1000);     // dopo 1 sec dall'invio tramite input, l'autoreply rimanda un messaggio predefinito con status: received
+        },
+        sendAudio: function () {
+            alert("Attenzione! Audio troppo lunghi potrebbero urtare i tuoi amici. Sii responsabile.");
         },
     }
 });
