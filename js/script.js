@@ -99,7 +99,7 @@ new Vue({
            
         },
         sendMessage: function () {
-            if (this.inputMessage.text != '') {        // pusha solo se il text in input è diverso da '' -> ossia non sia vuoto
+            if (this.inputMessage != '') {        // pusha solo se il text in input è diverso da '' -> ossia non sia vuoto
                 this.contacts[this.currentIndex].messages.push({    // al currentIndx dei messaggi nei contatti -> pusha il messaggio inserito tramite input (inputMessage)
                     date: dayjs().format('DD/MM/YY HH:mm:ss'),
                     text: (this.inputMessage),
