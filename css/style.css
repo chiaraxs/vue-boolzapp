@@ -11,7 +11,6 @@ body{
     background: linear-gradient(0deg, rgba(210,219,220,1) 0%, rgba(221,219,210,1) 85%, rgba(0,149,135,1) 85%, rgba(0,149,136,1) 100%);
 }
 
-
 /* LEFT-CONTAINER */
 .left-container{
     background-color: #ededed;
@@ -43,6 +42,9 @@ body{
    color: #9de1fe;
 }
 
+.contacts-container{
+    overflow-y: scroll;
+}
 
 /* RIGHT-CONTAINER */
 
@@ -54,6 +56,7 @@ body{
     height: 700px;
     background-image: url("../img/mine.jpg");
     border: 1px solid lightgray;
+    overflow-y: scroll;
 }
 
 .date-message{

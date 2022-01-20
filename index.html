@@ -175,13 +175,16 @@
                         <div class="chat-container">
                             <div class="box-message d-flex mt-2" v-for="message in contacts[currentIndex].messages" :class="message.status">
                                     
-                                    
+                                  
                                 <div class="text-message">
-                                    {{message.text}}
-                                        <div class="date-message text-secondary text-end font-weight-light">
-                                            {{message.date}}
-                                        </div>
+                                    {{message.text}}  
+                                    <div class="date-message text-secondary text-end font-weight-light">
+                                        {{message.date}}  
+                                        <a href=""><i class="fas fa-chevron-down ms-3"></i></a>   
+                                    </div>
+                                    
                                 </div>
+
                                     
                                 
                             </div>
