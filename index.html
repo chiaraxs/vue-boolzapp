@@ -92,6 +92,7 @@
                         <!-- / NOTIFICATIONS-CONTAINER -->
 
                         <!-- SEARCH-CONTAINER -->
+                        <!-- il v-model nell'input, grazie ai v-for e v-if (riga 116), filtra i contatti e trova quelli corrispondenti alle lettere inserite -->
                         <div class="search-container d-flex bg-light">
                             <a href="#"><i class="fas fa-search mx-3 my-2"></i></a>
                             <!--INPUT TEXT  -->
@@ -99,6 +100,7 @@
                                 type="text"
                                 class="input-group border-0"
                                 placeholder="Cerca o inizia una nuova chat"
+                                v-model="filterContact"
                             />
                             <!-- / INPUT TEXT  -->
                         </div>
@@ -108,9 +110,10 @@
                             <!-- con v-for stampa per ogni contatto i relativi nomi & img in una lista 
                             poi al @click porta richiama method setCurrentContact -> il currentIndex, con il v-for, cambia in base all'index corrente 
                             in modo che al click sul contatto rimandi alla chat specifica -->
+                            <!-- v-if nel v-for: se il nome del contatto include le lettere inserite tramite input 'filterName' -> filtra la ricerca tra i contatti -->
                         <div class="contacts-container">
                             <ul class="contatcs list-group">
-                                <li class="list-group-item" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
+                                <li class="list-group-item" v-for="(contact, index) in contacts" @click="setCurrentContact(index)" v-if="contact.name.toLowerCase().includes(filterContact)">
                                     <img
                                         class="avatars-img"
                                         :src="getAvatarImg(contact)"

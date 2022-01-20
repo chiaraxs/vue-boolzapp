@@ -3,6 +3,7 @@ new Vue({
     data: {
         currentIndex: 0,
         inputMessage: '',    // messaggio da popolare tramite input
+        filterContact: '',      // per input search -> filtra la ricerca per nome dei contatti
         contacts: [
             {
                 name: 'Michele',
