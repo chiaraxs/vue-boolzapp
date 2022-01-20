@@ -112,7 +112,7 @@ new Vue({
             setTimeout(() => {
                 this.contacts[this.currentIndex].messages.push({
                     date: dayjs().format('DD/MM/YY HH:mm:ss'),
-                    text: 'Conosci il reato di stalking? Ti invito a leggere l\'articolo 612-bis del codice penale.',
+                    text: 'Conosci il reato di stalking? Ti invito a leggere l\'articolo 612-bis del codice penale prima che ti quereli.',
                     status: 'received',
                 })
             }, 1000);     // dopo 1 sec dall'invio tramite input, l'autoreply rimanda un messaggio predefinito con status: received

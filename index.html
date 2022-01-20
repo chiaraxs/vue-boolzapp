@@ -36,192 +36,182 @@
         <!-- GENERAL CONTAINER -->
         <div class="container-fluid p-0">
         
-            <!-- BACKGROUND TOP/MAIN (GREEN) -->
-            <div class="top-background"></div>
-            <!-- / BACKGROUND TOP/MAIN (GREEN) -->
-
-            <!-- BACKGROUND MAIN (GRAY) -->
-            <div class="main-background d-flex">
-                
-                <!-- MAIN CONTAINER -->
-                <div class="container main-container ">
-                    
-                    <!-- ROW -->
-                    <div class="row g-0">
-
-                        <!-- COL LEFT -->
-                        <div class="col-sm-6 col-lg-4 left-container">
-                    
-                            <!-- LEFT CONTAINER / SIDEBAR -->
-                            <!-- HEADER-LEFT -->
-                            <div class="header-left d-flex mb-3">
-
-                                <!-- USER IMG-DETAILS CONTAINER -->
-                                <div class="user-img flex-grow-1">
-                                    <img
-                                    class="avatars-img my-2 mx-2"
-                                    src="./img/avatar_io.jpg"
-                                    alt=""
-                                    />
-                                    <span class="fw-bold">Chiara</span>
-                                </div>
-                                <!-- / USER IMG-DETAILS CONTAINER -->
-
-                                <!-- ICONS PROFILE-TOOLS CONTAINER -->
-                                <div class="profile-tools">
-                                    <a href="#"><i class="fas fa-circle-notch my-3 mx-2 py-2 px-1"></i></a>
-                                    <a href="#"><i class="fas fa-comment-alt my-3 mx-2 py-2 px-1"></i></a>
-                                    <a href="#"><i class="fas fa-ellipsis-v my-3 mx-2 py-2 px-1"></i></a>
-                                </div>
-                                <!-- / ICONS PROFILE-TOOLS CONTAINER -->
-
-                            </div>
-                            <!-- / HEADER-LEFT -->
-
-                            <!-- NOTIFICATIONS-CONTAINER -->
-                            <div class="notifications-container d-flex">
-                                <div class="icon-notifications text-center py-3 px-2 mx-2 my-2">
-                                    <a href="#"><i class="fas fa-bell-slash"></i></a>
-                                </div>
-
-                                <div class="notifications my-2 mx-1">
-                                    <div class="receive-notification fw-bold">
-                                        Ricevi notifiche di nuovi messaggi
-                                    </div>
-                                    <div class="active-notification text-decoration-underline mb-1">
-                                       <a href="#" class="text-dark">Attiva notifiche desktop</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- / NOTIFICATIONS-CONTAINER -->
-
-                            <!-- SEARCH-CONTAINER -->
-                            <div class="search-container d-flex bg-light">
-                               <a href="#"><i class="fas fa-search mx-3 my-2"></i></a>
-                                <!--INPUT TEXT  -->
-                               <input
-                                    type="text"
-                                    class="input-group border-0"
-                                    placeholder="Cerca o inizia una nuova chat"
-                                />
-                                <!-- / INPUT TEXT  -->
-                            </div>
-                            <!-- / SEARCH-CONTAINER -->
-
-                            <!-- CONTACTS-CONTAINER --> 
-                                <!-- con v-for stampa per ogni contatto i relativi nomi & img in una lista 
-                                poi al @click porta richiama method setCurrentContact -> il currentIndex, con il v-for, cambia in base all'index corrente 
-                                in modo che al click sul contatto rimandi alla chat specifica -->
-                            <div class="contacts-container">
-                                <ul class="contatcs list-group">
-                                    <li class="list-group-item" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
-                                        <img
-                                            class="avatars-img"
-                                            :src="getAvatarImg(contact)"
-                                            alt="contact-avatar"
-                                        />
-                                        {{ contact.name }}
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- / CONTACTS-CONTAINER -->
-                            
-                        </div>
-                        <!-- / LEFT CONTAINER / SIDEBAR -->
-                        <!-- / COL LEFT -->
-                        
-                        <!-- COL RIGHT -->
-                        <div class="col-sm-6 col-lg-8">
-                            
-                            <!-- RIGHT-CONTAINER -->
-                            <!-- HEADER-RIGHT  -->
-                            <div class="header-right">
-
-                                <!-- CONTACT IMG/DETAILS -->
-                                <div class="header-left d-flex">
-                                    <div class="user-img flex-grow-1 py-2 mx-2">
-                                        <img
-                                            class="avatars-img"
-                                            :src="`img/avatar${contacts[currentIndex].avatar}.jpg`"
-                                            alt=""
-                                        />
-
-                                        <span class="fw-bold">{{contacts[currentIndex].name}}</span>
-                                        <p class="text-secondary">
-                                            <!-- Ultimo accesso oggi alle  -->
-                                        </p>
-                                        
-
-                                    </div>
-                                    <!-- / CONTACT IMG/ DETAILS -->
-
-                                    <!-- CONTACT SETTING-ICONS -->
-                                    <div class="profile-setting">
-                                        <a href="#"><i class="fas fa-search  my-3 mx-2 py-2 px-1"></i></a>
-                                        <a href="#"><i class="fas fa-paperclip  my-3 mx-2 py-2 px-1"></i></a>
-                                        <a href="#"><i class="fas fa-ellipsis-v  my-3 mx-2 py-2 px-1"></i></a>
-                                    </div>
-                                    <!-- / CONTACT SETTING-ICONS -->
-                                </div>
-                                <!-- / CONTACT IMG/DETAILS -->
-
-                            </div>
-                            <!-- / HEADER-RIGHT  -->
-
-
-                            <!-- CHAT-CONTAINER -->
-                                <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
-                                ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
-                                <!-- :class -> corrente status del message -> se lo stato del messaggio è uguale a 'sent' colora di verde | altrimenti è 'received' e colora di bianco  -->
-                            <div class="chat-container">
-                                <div class="box-message d-flex mt-2" v-for="message in contacts[currentIndex].messages" :class="message.status">
-                                    
-                                    
-                                    <div class="text-message">
-                                        {{message.text}}
-                                            <div class="date-message text-secondary text-end font-weight-light">
-                                                {{message.date}}
-                                            </div>
-                                    </div>
-                                    
-                                
-                                </div>
-                                
-                            </div>
-                            <!-- / CHAT-CONTAINER -->
-
-                            <!-- FOOTER-CHAT-CONTAINER -->
-                            <div class="footer-chat-container d-flex justify-content-between">
-                                <a href="#"><i class="far fa-smile ms-4 py-3"></i></a>
-                                <div class="input-message py-3">
-                                    <input
-                                    type="text"
-                                    placeholder="Scrivi un messaggio"
-                                    class="border-0" style="width:700px"
-                                    v-model="inputMessage"
-                                    @keyup.enter="sendMessage"
-                                    />
-                                </div>
-                                <a href="#"><i class="fas fa-paper-plane py-3" @click="sendMessage"></i></a>
-                                <a href="#"><i class="fas fa-microphone py-3 me-4"></i></a>
-                            </div>
-                            <!-- / FOOTER-CHAT-CONTAINER -->
-                            <!-- / RIGHT-CONTAINER  -->
-                        </div>
-                        <!-- / COL RIGHT -->
-                
-                    </div>
-                    <!-- / ROW -->
-
-                </div>
-                <!-- / MAIN CONTAINER -->
-
-            </div>
-            <!-- / BACKGROUND MAIN (GRAY) --> 
-
-                
+            
             
                 
+            <!-- MAIN CONTAINER -->
+            <div class="container main-container mt-5">
+                    
+                <!-- ROW -->
+                <div class="row g-0">
+
+                    <!-- COL LEFT -->
+                    <div class="col-sm-6 col-lg-4 left-container">
+                    
+                        <!-- LEFT CONTAINER / SIDEBAR -->
+                        <!-- HEADER-LEFT -->
+                        <div class="header-left d-flex mb-3">
+
+                            <!-- USER IMG-DETAILS CONTAINER -->
+                            <div class="user-img flex-grow-1">
+                                <img
+                                class="avatars-img my-2 mx-2"
+                                src="./img/avatar_io.jpg"
+                                alt=""
+                                />
+                                <span class="fw-bold">Chiara</span>
+                            </div>
+                            <!-- / USER IMG-DETAILS CONTAINER -->
+
+                            <!-- ICONS PROFILE-TOOLS CONTAINER -->
+                            <div class="profile-tools">
+                                <a href="#"><i class="fas fa-circle-notch my-3 mx-2 py-2 px-1"></i></a>
+                                <a href="#"><i class="fas fa-comment-alt my-3 mx-2 py-2 px-1"></i></a>
+                                <a href="#"><i class="fas fa-ellipsis-v my-3 mx-2 py-2 px-1"></i></a>
+                            </div>
+                            <!-- / ICONS PROFILE-TOOLS CONTAINER -->
+
+                        </div>
+                        <!-- / HEADER-LEFT -->
+
+                        <!-- NOTIFICATIONS-CONTAINER -->
+                        <div class="notifications-container d-flex">
+                            <div class="icon-notifications text-center py-3 px-2 mx-2 my-2">
+                                <a href="#"><i class="fas fa-bell-slash"></i></a>
+                            </div>
+
+                            <div class="notifications my-2 mx-1">
+                                <div class="receive-notification fw-bold">
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+                                <div class="active-notification text-decoration-underline mb-1">
+                                    <a href="#" class="text-dark">Attiva notifiche desktop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / NOTIFICATIONS-CONTAINER -->
+
+                        <!-- SEARCH-CONTAINER -->
+                        <div class="search-container d-flex bg-light">
+                            <a href="#"><i class="fas fa-search mx-3 my-2"></i></a>
+                            <!--INPUT TEXT  -->
+                            <input
+                                type="text"
+                                class="input-group border-0"
+                                placeholder="Cerca o inizia una nuova chat"
+                            />
+                            <!-- / INPUT TEXT  -->
+                        </div>
+                        <!-- / SEARCH-CONTAINER -->
+
+                        <!-- CONTACTS-CONTAINER --> 
+                            <!-- con v-for stampa per ogni contatto i relativi nomi & img in una lista 
+                            poi al @click porta richiama method setCurrentContact -> il currentIndex, con il v-for, cambia in base all'index corrente 
+                            in modo che al click sul contatto rimandi alla chat specifica -->
+                        <div class="contacts-container">
+                            <ul class="contatcs list-group">
+                                <li class="list-group-item" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
+                                    <img
+                                        class="avatars-img"
+                                        :src="getAvatarImg(contact)"
+                                        alt="contact-avatar"
+                                    />
+                                    {{ contact.name }}
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- / CONTACTS-CONTAINER -->
+                            
+                    </div>
+                    <!-- / LEFT CONTAINER / SIDEBAR -->
+                    <!-- / COL LEFT -->
+                        
+                    <!-- COL RIGHT -->
+                    <div class="col-sm-6 col-lg-8">
+                        
+                        <!-- RIGHT-CONTAINER -->
+                        <!-- HEADER-RIGHT  -->
+                        <div class="header-right">
+
+                            <!-- CONTACT IMG/DETAILS -->
+                            <div class="header-left d-flex">
+                                <div class="user-img flex-grow-1 py-2 mx-2">
+                                    <img
+                                        class="avatars-img"
+                                        :src="`img/avatar${contacts[currentIndex].avatar}.jpg`"
+                                        alt=""
+                                    />
+
+                                    <span class="fw-bold">{{contacts[currentIndex].name}}</span>
+                                    <p class="text-secondary">
+                                        <!-- Ultimo accesso oggi alle  -->
+                                    </p>
+                                        
+
+                                </div>
+                                <!-- / CONTACT IMG/ DETAILS -->
+
+                                <!-- CONTACT SETTING-ICONS -->
+                                <div class="profile-setting">
+                                    <a href="#"><i class="fas fa-search  my-3 mx-2 py-2 px-1"></i></a>
+                                    <a href="#"><i class="fas fa-paperclip  my-3 mx-2 py-2 px-1"></i></a>
+                                    <a href="#"><i class="fas fa-ellipsis-v  my-3 mx-2 py-2 px-1"></i></a>
+                                </div>
+                                <!-- / CONTACT SETTING-ICONS -->
+                            </div>
+                            <!-- / CONTACT IMG/DETAILS -->
+
+                        </div>
+                        <!-- / HEADER-RIGHT  -->
+
+
+                        <!-- CHAT-CONTAINER -->
+                            <!-- con v-for stampa per ogni contatto i relativi text messages (sent/receveid) del currentIndex
+                            ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
+                            <!-- :class -> corrente status del message -> se lo stato del messaggio è uguale a 'sent' colora di verde | altrimenti è 'received' e colora di bianco  -->
+                        <div class="chat-container">
+                            <div class="box-message d-flex mt-2" v-for="message in contacts[currentIndex].messages" :class="message.status">
+                                    
+                                    
+                                <div class="text-message">
+                                    {{message.text}}
+                                        <div class="date-message text-secondary text-end font-weight-light">
+                                            {{message.date}}
+                                        </div>
+                                </div>
+                                    
+                                
+                            </div>
+                                
+                        </div>
+                        <!-- / CHAT-CONTAINER -->
+
+                        <!-- FOOTER-CHAT-CONTAINER -->
+                        <div class="footer-chat-container d-flex justify-content-between">
+                            <a href="#"><i class="far fa-smile ms-4 py-3"></i></a>
+                            <div class="input-message py-3">
+                                <input
+                                type="text"
+                                placeholder="Scrivi un messaggio"
+                                class="border-0" style="width:700px"
+                                v-model="inputMessage"
+                                @keyup.enter="sendMessage"
+                                />
+                            </div>
+                            <a href="#"><i class="fas fa-paper-plane py-3" @click="sendMessage"></i></a>
+                            <a href="#"><i class="fas fa-microphone py-3 me-4"></i></a>
+                        </div>
+                        <!-- / FOOTER-CHAT-CONTAINER -->
+                        <!-- / RIGHT-CONTAINER  -->
+                    </div>
+                    <!-- / COL RIGHT -->
+                
+                </div>
+                <!-- / ROW -->
+
+            </div>
+            <!-- / MAIN CONTAINER -->
+ 
         </div>
         <!-- / GENERAL CONTAINER -->
     

@@ -5,21 +5,12 @@
   box-sizing: border-box;
 }
 
-/* BACKGROUND STYLE */
-.top-background{
-    height: 150px;
-    background-color: #009688;
+body{
+    height: 100vh;
+    background: rgb(210,219,220);
+    background: linear-gradient(0deg, rgba(210,219,220,1) 0%, rgba(221,219,210,1) 85%, rgba(0,149,135,1) 85%, rgba(0,149,136,1) 100%);
 }
 
-.main-background{
-    background-color: #d9dbd5;
-    height: 800px;
-}
-
-/* MAIN STYLE */
-.main-container{
-    margin-top: -80px;
-}
 
 /* LEFT-CONTAINER */
 .left-container{
