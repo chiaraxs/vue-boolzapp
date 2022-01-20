@@ -41,6 +41,11 @@
 .fas, .far {
     color: gray;
     cursor: pointer;
+    font-size: 20px;
+}
+
+.fas:hover, .far:hover{
+    color: #CDC1C5;
 }
 
 .fa-bell-slash{
@@ -62,6 +67,15 @@
 
 .footer-chat-container{
     background-color: #ededed;
+}
+
+.footer-chat-container .fa-microphone:hover{
+    color: #ff3b30;
+}
+
+/* FONT STYLE */
+.date-message{
+    font-size: 12px;
 }
 
 /* IMG E AVATARS */

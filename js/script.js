@@ -90,15 +90,32 @@ new Vue({
         ]
     },
     methods: {
+        getAvatarImg (contact){
+            return `img/avatar${contact.avatar}.jpg`;       // il return rimanda alla replicazione del v-for per stampare gli avatar dei contatti
+        },
+        setCurrentContact(index) {
+            this.currentIndex = index;          // method che setta il currentIndex -> con il v-for, il contatto in lista cambia in base all'index corrente 
+           
+        },
         sendMessage: function () {
             if (this.inputMessage.text != '') {        // pusha solo se il text in input è diverso da '' -> ossia non sia vuoto
                 this.contacts[this.currentIndex].messages.push({    // al currentIndx dei messaggi nei contatti -> pusha il messaggio inserito tramite input (inputMessage)
-                    date: '',
+                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
                     text: (this.inputMessage),
-                    status: 'sent',                   // imposto lo status a 'sent' in modo da riprendere la class css 'sent'
+                    status: 'sent',                         // imposto lo status a 'sent' in modo da riprendere la class css 'sent'
                 })
-                this.inputMessage = ''    // resetto stringa input ad ogni push -> ossia ad ogni invio messaggio
-            }
+                this.inputMessage = '';                     // resetto stringa input ad ogni push -> ossia ad ogni invio messaggio
+            }   
+            this.autoReply();                               // richiamo autoReply per ricevere risposta automatica 
+        },
+        autoReply: function () {
+            setTimeout(() => {
+                this.contacts[this.currentIndex].messages.push({
+                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
+                    text: 'Conosci il reato di stalking? Ti invito a leggere l\'articolo 612-bis del codice penale.',
+                    status: 'received',
+                })
+            }, 1000);     // dopo 1 sec dall'invio tramite input, l'autoreply rimanda un messaggio predefinito con status: received
         },
     }
 });

@@ -22,6 +22,8 @@
     />
     <!-- link css -->
     <link rel="stylesheet" href="./css/style.css"/>
+    <!-- link day.js -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <!-- link cdn estensione vue.js  -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
@@ -78,7 +80,7 @@
 
                             <!-- NOTIFICATIONS-CONTAINER -->
                             <div class="notifications-container d-flex">
-                                <div class="icon-notifications text-center py-3 px-3 mx-2 my-2">
+                                <div class="icon-notifications text-center py-3 px-2 mx-2 my-2">
                                     <a href="#"><i class="fas fa-bell-slash"></i></a>
                                 </div>
 
@@ -108,14 +110,14 @@
 
                             <!-- CONTACTS-CONTAINER --> 
                                 <!-- con v-for stampa per ogni contatto i relativi nomi & img in una lista 
-                                poi al @click porta il currentIndex all'index corrente replicato con il v-for 
+                                poi al @click porta richiama method setCurrentContact -> il currentIndex, con il v-for, cambia in base all'index corrente 
                                 in modo che al click sul contatto rimandi alla chat specifica -->
                             <div class="contacts-container">
                                 <ul class="contatcs list-group">
-                                    <li class="list-group-item" v-for="(contact, index) in contacts" @click="currentIndex = index">
+                                    <li class="list-group-item" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
                                         <img
                                             class="avatars-img"
-                                            :src="`img/avatar${contact.avatar}.jpg`"
+                                            :src="getAvatarImg(contact)"
                                             alt="contact-avatar"
                                         />
                                         {{ contact.name }}
@@ -169,12 +171,12 @@
                                 ossia: del currentIndex raggiunto con il @click sul contatto (riga 115) -->
                                 <!-- :class -> lo stato del messaggio è uguale a 'sent' ? se sì, colora di verde | altrimenti colora di bianco (received) -->
                             <div class="chat-container">
-                                <div class="box-message d-flex" v-for="(message, index) in contacts[currentIndex].messages">
+                                <div class="box-message d-flex" v-for="message in contacts[currentIndex].messages">
                                     
                                     
                                     <div class="text-message" :class="message.status === 'sent' ? 'sent' : 'received' ">
                                         {{message.text}}
-                                            <div class="date-message">
+                                            <div class="date-message text-secondary font-weight-light">
                                                 {{message.date}}
                                             </div>
                                     </div>
@@ -199,7 +201,8 @@
                                     @keyup.enter="sendMessage"
                                     />
                                 </div>
-                                <a href="#"><i class="fas fa-microphone me-4 py-3"></i></a>
+                                <a href="#"><i class="fas fa-paper-plane py-3" @click="sendMessage"></i></a>
+                                <a href="#"><i class="fas fa-microphone py-3 me-4"></i></a>
                             </div>
                             <!-- / FOOTER-CHAT-CONTAINER -->
                             <!-- / RIGHT-CONTAINER  -->
